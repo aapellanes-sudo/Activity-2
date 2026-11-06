@@ -9,13 +9,12 @@ use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
-    // GET /api/students
+
     public function index()
     {
         return response()->json(Student::latest()->get());
     }
 
-    // POST /api/students
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -32,13 +31,11 @@ class StudentController extends Controller
         return response()->json($student, 201);
     }
 
-    // GET /api/students/{student}
     public function show(Student $student)
     {
         return response()->json($student);
     }
 
-    // PUT /api/students/{student}
     public function update(Request $request, Student $student)
     {
         $validated = $request->validate([
@@ -61,7 +58,6 @@ class StudentController extends Controller
         return response()->json($student);
     }
 
-    // DELETE /api/students/{student}
     public function destroy(Student $student)
     {
         $student->delete();
